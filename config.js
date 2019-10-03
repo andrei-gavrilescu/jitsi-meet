@@ -472,6 +472,7 @@ var config = {
      disableNS
      enableLipSync
      enableTalkWhileMuted
+     enableNoAudioDetection
      forceJVB121Ratio
      hiddenDomain
      ignoreStartMuted
