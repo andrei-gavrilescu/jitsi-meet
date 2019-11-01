@@ -114,6 +114,7 @@ import { mediaPermissionPromptVisibilityChanged } from './react/features/overlay
 import { suspendDetected } from './react/features/power-monitor';
 import { setSharedVideoStatus } from './react/features/shared-video';
 import { endpointMessageReceived } from './react/features/subtitles';
+import { createRnnoiseProcessorPromise } from './react/features/rnnoise';
 
 const logger = require('jitsi-meet-logger').getLogger(__filename);
 
@@ -1220,6 +1221,7 @@ export default {
         options.applicationName = interfaceConfig.APP_NAME;
         options.getWiFiStatsMethod = this._getWiFiStatsMethod;
         options.confID = `${locationURL.host}${locationURL.pathname}`;
+        options.vadProcessor = createRnnoiseProcessorPromise;
 
         return options;
     },
