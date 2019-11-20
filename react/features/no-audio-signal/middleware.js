@@ -54,6 +54,19 @@ MiddlewareRegistry.register(store => next => async action => {
                 }
             }
         });
+        conference.on(JitsiConferenceEvents.PARTICIPANT_ECHO, echoData => {
+
+            const description = `${echoData.deviceLabel}: ${echoData.reason}`;
+
+            const notification = showNotification({
+                titleKey: 'Echo Detected!',
+                description
+            });
+
+            dispatch(notification);
+
+            dispatch(playSound(NO_AUDIO_SIGNAL_SOUND_ID));
+        });
         conference.on(JitsiConferenceEvents.NO_AUDIO_INPUT, async () => {
             const { noSrcDataNotiUid } = getState()['features/base/no-src-data'];
 

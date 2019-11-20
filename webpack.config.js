@@ -42,7 +42,6 @@ const config = {
             }
         }
     },
-    devtool: 'source-map',
     mode: minimize ? 'production' : 'development',
     module: {
         rules: [ {
